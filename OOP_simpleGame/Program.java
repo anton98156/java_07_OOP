@@ -1,58 +1,77 @@
 package OOP_simpleGame;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+
+    // private boolean start() {
+        
+    //     Scanner in = new Scanner(System.in);
+    //     System.out.println("Hello hero!");
+    //     System.out.println("There are 3 characters: ");
+    //     System.out.println("Warrior - highest damage, high hp, but no elixir to heal");
+    //     System.out.println("Magician - middle damage, lowest hp, but 3 elixirs to heal");
+    //     System.out.println("Priest - middle damage, highest hp, but only 1 elixir to heal");
+    //     System.out.println("Choose your character: ");
+    //     String choose_1 = in.nextLine();
+    //     in.close();
+
+    //     if (choose_1 == "Warrior" || choose_1 == "Magician" || choose_1 == "Priest"){
+            
+    //         return true;
+    //     }
+    //     else {
+    //         System.out.println("Try again!");
+    //         return false;
+    //     }
+    // }
       
-        // #region ex1 Demo
+        Scanner in = new Scanner(System.in);
+        System.out.println("Hello hero!");
+        System.out.println("There are 3 characters: ");
+        System.out.println("Warrior - highest damage, high hp, but no elixir to heal");
+        System.out.println("Magician - middle damage, lowest hp, but 3 elixirs to heal");
+        System.out.println("Priest - middle damage, highest hp, but only 1 elixir to heal");
+        System.out.println("Choose your character: ");
+        String choose_1 = in.nextLine();
+        in.close();
 
-        // BaseHero hero3 = new Magician();
-        // System.out.println(hero3.getInfo());
+        if (choose_1 != "Warrior" || choose_1 != "Magician" || choose_1 != "Priest"){
+            System.out.println("Try again!");
+        }
+        // if (choose_1 == "Priest") {
+        //     Player hero_1 = new Priest();
+        //     System.out.println(hero_1.getInfo());
+        // }
+        // else if (choose_1 == "Magician") {
+        //     Player hero_1 = new Magician();
+        //     System.out.println(hero_1.getInfo());
+        // }
 
-        // BaseHero hero4 = new Priest();
-        // System.out.println(hero4.getInfo());
+        Player hero_1 = new Magician();
+        System.out.println(hero_1.getInfo());
+
+        Player hero_2 = new Priest();
+        System.out.println(hero_2.getInfo());
 
         // #endregion
 
         // #region ex2 Attack
-        // System.out.println("------");
-        // System.out.println(hero3.getInfo());
-        // System.out.println(hero4.getInfo());
+        System.out.println("------");
+        System.out.println(hero_1.getInfo());
+        System.out.println(hero_2.getInfo());
 
-        // hero3.Attack(hero4);
+        hero_1.Attack(hero_2);
         
-        // hero4.Attack(hero3);
-        // System.out.println(hero3.getInfo());
-        // System.out.println(hero4.getInfo());
+        hero_2.Attack(hero_1);
+        System.out.println(hero_1.getInfo());
+        System.out.println(hero_2.getInfo());
 
-        // #endregion
-
-        // #region Teams
-
-        int teamCount = 10;
-        Random rand = new Random();
-        int magicianCount = 0;
-        int priestCount = 0;
+        double magicianCount = 0;
+        double priestCount = 0;
  
-
-        List<BaseHero> teams = new ArrayList<>();
-        for (int i = 0; i < teamCount; i++) {
-            if (rand.nextInt(2) == 0) {
-                teams.add(new Priest());
-                priestCount++;
-            }
-            else{
-                teams.add(new Magician());
-                magicianCount++;
-            }
-
-            System.out.println(teams.get(i).getInfo());
-        }
         System.out.println();
-        System.out.printf("magicalCount: %d priestCount: %d \n\n", magicianCount, priestCount);
+        System.out.printf("magicalCount: %f priestCount: %f \n\n", magicianCount, priestCount);
         
         // attack
 

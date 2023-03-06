@@ -1,18 +1,18 @@
 package OOP_simpleGame;
  
-public class Magician extends BaseHero {
+public class Magician extends Player {
 
-    private int mana;
-    private int maxMana;
+    private double mana;
+    private double maxMana;
 
     public Magician() {
-        super(String.format("Hero_Magician #%d", ++Magician.number),
-                Magician.r.nextInt(100, 200));
-        this.maxMana = Magician.r.nextInt(50, 150);
+        super(String.format("Hero_Magician #%d", ++Magician.id),
+                Magician.rand.nextDouble(100, 200));
+        this.maxMana = Magician.rand.nextDouble(50, 150);
         this.mana = maxMana;
     }
 
     public String getInfo() {
-        return String.format("%s  Mana: %d",super.getInfo(), this.mana);
+        return String.format("%s  Mana: %f",super.getInfo(), this.mana);
     }
 }
