@@ -2,82 +2,43 @@ package OOP_simpleGame;
 import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-    // private boolean start() {
-        
-    //     Scanner in = new Scanner(System.in);
-    //     System.out.println("Hello hero!");
-    //     System.out.println("There are 3 characters: ");
-    //     System.out.println("Warrior - highest damage, high hp, but no elixir to heal");
-    //     System.out.println("Magician - middle damage, lowest hp, but 3 elixirs to heal");
-    //     System.out.println("Priest - middle damage, highest hp, but only 1 elixir to heal");
-    //     System.out.println("Choose your character: ");
-    //     String choose_1 = in.nextLine();
-    //     in.close();
-
-    //     if (choose_1 == "Warrior" || choose_1 == "Magician" || choose_1 == "Priest"){
-            
-    //         return true;
-    //     }
-    //     else {
-    //         System.out.println("Try again!");
-    //         return false;
-    //     }
-    // }
-      
-        Scanner in = new Scanner(System.in);
-        System.out.println("Hello hero!");
+        System.out.println("Hello Hero!");
+        System.out.println("Survive to win!");
         System.out.println("There are 3 characters: ");
-        System.out.println("Warrior - highest damage, high hp, but no elixir to heal");
-        System.out.println("Magician - middle damage, lowest hp, but 3 elixirs to heal");
-        System.out.println("Priest - middle damage, highest hp, but only 1 elixir to heal");
-        System.out.println("Choose your character: ");
-        String choose_1 = in.nextLine();
-        in.close();
+        System.out.println("Warrior has highest hp");
+        System.out.println("Magician has 3 elixirs to heal");
+        System.out.println("Priest has nothing, but miracles often happen with him");
 
-        if (choose_1 != "Warrior" || choose_1 != "Magician" || choose_1 != "Priest"){
-            System.out.println("Try again!");
+        Scanner in = new Scanner(System.in);
+        
+        Hero player = Initialization.assign(Initialization.choise);
+        Hero bot_1 = new Warrior();
+        Hero bot_2 = new Magician();
+        Hero bot_3 = new Priest();
+        
+        Thread.sleep(700);
+
+
+        System.out.println(player.getInfo());
+        System.out.println(bot_1.getInfo());
+        System.out.println(bot_2.getInfo());
+        System.out.println(bot_3.getInfo());
+
+        Thread.sleep(700);
+        
+        while (player.checkHP() > 0) {
+            Game.gamePlay(player, bot_1, bot_2, bot_3);
+            if (bot_1.checkHP() < 0 && bot_2.checkHP() < 0 && bot_3.checkHP() < 0) {
+                System.out.println("Congratulations! You have won!");
+                break;
+            }
         }
-        // if (choose_1 == "Priest") {
-        //     Player hero_1 = new Priest();
-        //     System.out.println(hero_1.getInfo());
-        // }
-        // else if (choose_1 == "Magician") {
-        //     Player hero_1 = new Magician();
-        //     System.out.println(hero_1.getInfo());
-        // }
+        if (player.checkHP() < 0) {
+            System.out.println("You are dead, try again!");
+        }
 
-        Player hero_1 = new Magician();
-        System.out.println(hero_1.getInfo());
-
-        Player hero_2 = new Priest();
-        System.out.println(hero_2.getInfo());
-
-        // #endregion
-
-        // #region ex2 Attack
-        System.out.println("------");
-        System.out.println(hero_1.getInfo());
-        System.out.println(hero_2.getInfo());
-
-        hero_1.Attack(hero_2);
-        
-        hero_2.Attack(hero_1);
-        System.out.println(hero_1.getInfo());
-        System.out.println(hero_2.getInfo());
-
-        double magicianCount = 0;
-        double priestCount = 0;
- 
-        System.out.println();
-        System.out.printf("magicalCount: %f priestCount: %f \n\n", magicianCount, priestCount);
-        
-        // attack
-
-        // #endregion
-
-        // todo добавить ещё один класс и 
-        // реализовать возможность лечения героев
+        in.close();
     }
 }
