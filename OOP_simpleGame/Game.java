@@ -89,19 +89,19 @@ public class Game {
     
         if (check.matches("Warrior")) {
             System.out.printf("%s attacks %s\n", player.getName(), bot_1.getName());
-            bot_1.getDamage(Hero.rand.nextDouble(20, 35));
+            bot_1.getDamage(Hero.rand.nextDouble(24, 35));
         }
         else if (check.matches("Knight")) {
             System.out.printf("%s attacks %s\n", player.getName(), bot_2.getName());
-            bot_2.getDamage(Hero.rand.nextDouble(20, 35));
+            bot_2.getDamage(Hero.rand.nextDouble(24, 35));
         }
         else if (check.matches("Priest")) {
             System.out.printf("%s attacks %s\n", player.getName(), bot_3.getName());
-            bot_3.getDamage(Hero.rand.nextDouble(20, 35));
+            bot_3.getDamage(Hero.rand.nextDouble(24, 35));
         }
         else if (check.matches("Magician")) {
             System.out.printf("%s attacks %s\n", player.getName(), bot_4.getName());
-            bot_4.getDamage(Hero.rand.nextDouble(20, 35));
+            bot_4.getDamage(Hero.rand.nextDouble(24, 35));
         }
         else {
             System.out.println("\nThere is no such hero.");
