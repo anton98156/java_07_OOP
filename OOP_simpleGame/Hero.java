@@ -33,7 +33,7 @@ public class Hero {
     }
 
     public String getInfo() {
-        return String.format("%s Hp: %f", this.name, this.hp);
+        return String.format("%s ", this.name);
     }
 
     public double getDamage(double damage) {
@@ -41,7 +41,7 @@ public class Hero {
         }
     
     public double reincarnation () {
-        return (this.hp = 120);
+        return (this.hp = 110);
     }
 
     public double heal () {
@@ -52,4 +52,14 @@ public class Hero {
     public double useElixir (double removeElixir) {
         return (Magician.elixir = Magician.elixir - removeElixir);
     }
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static String paint (String color) {
+        return color;
+    }
+   
 }

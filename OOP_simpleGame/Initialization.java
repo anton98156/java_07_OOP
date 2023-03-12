@@ -43,8 +43,8 @@ public class Initialization {
         System.out.println("\nHello Hero!");
         System.out.println("Survive to win!");
         System.out.println("There are 3 characters: ");
-        System.out.println("Warrior has the highest damage");
-        System.out.println("Knight has the highest health points");
+        System.out.println("Warrior has many health points and the highest damage");
+        System.out.println("Knight has high damage the highest health points");
         System.out.println("Magician has 2 elixirs to heal himself");
         System.out.println("Priest has nothing, but miracles often happen with him");
         System.out.println("Priest can stay alive. You will achieve a victory in such case as well");
